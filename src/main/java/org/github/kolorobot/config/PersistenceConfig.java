@@ -48,7 +48,7 @@ public class PersistenceConfig implements TransactionManagementConfigurer {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactoryBean.setDataSource(dataSource());
-		entityManagerFactoryBean.setPackagesToScan("org.github.kolorobot.user");
+		entityManagerFactoryBean.setPackagesToScan("org.github.kolorobot.domain");
 		entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		
 		Properties jpaProperties = new Properties();

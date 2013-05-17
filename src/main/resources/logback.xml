@@ -11,9 +11,9 @@
 	</appender>
 
 	<jmxConfigurator />
-	<root level="WARN">
+	<root level="INFO">
 		<appender-ref ref="STDOUT" />
 	</root>
 
-	<logger name="com.github.kolorobot.icm" level="ALL" />
+	<logger name="org.github.kolorobot" level="ALL" />
 </configuration>
