@@ -73,9 +73,9 @@ public class IncidentManagementService {
 	@Path("/{incidentId}/audit")
 	@PUT
 	@Produces({MediaType.TEXT_XML, MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	public Long addAudit(@PathParam("incidentId") Long incidentId, @QueryParam(value = "description") String description, @QueryParam(value = "newStatus") Incident.Status newStatus) {
+	public Audit addAudit(@PathParam("incidentId") Long incidentId, @QueryParam(value = "description") String description, @QueryParam(value = "newStatus") Incident.Status newStatus) {
 		Incident incident = getIncident(incidentId);
-		return incidentManager.addAudit(incident, description, newStatus).getId();
+		return incidentManager.addAudit(incident, description, newStatus);
 	}
 
 	@Path("/{incidentId}/audit")
@@ -86,7 +86,7 @@ public class IncidentManagementService {
 	}
 
 	@Path("/{incidentId}/audit/{auditId}")
-	@PUT
+	@GET
 	@Produces({MediaType.TEXT_XML, MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	public Audit getOneAudit(@PathParam(value = "incidentId") Long incidentId, @PathParam(value = "auditId") Long auditId) {
 		Audit audit = incidentManager.getAudit(incidentId, auditId);

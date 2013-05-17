@@ -56,7 +56,7 @@ public class Incident {
 	
 	private Status status;
 	
-	@OneToMany(mappedBy = "incident", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "incident", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@OrderBy(value = "created DESC")
 	@XmlTransient
 	private List<Audit> audits;

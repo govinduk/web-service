@@ -60,8 +60,16 @@ public class IncidentManager {
 
 	@Transactional
 	public Audit addAudit(Incident incident, String description, Incident.Status newStatus) {
-		incident.addAudit(new Audit(description, newStatus));
-		return new Audit(description, newStatus);
+		// refresh the entity
+		incident = incidentRepository.findOne(incident.getId());
+
+		Audit audit = new Audit(description, newStatus);
+		incident.addAudit(audit);
+
+		auditRepository.save(audit);
+		incidentRepository.save(incident);
+
+		return audit;
 	}
 
 	@Transactional
