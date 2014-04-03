@@ -10,7 +10,6 @@
 		</encoder>
 	</appender>
 
-	<jmxConfigurator />
 	<root level="WARN">
 		<appender-ref ref="STDOUT" />
 	</root>
